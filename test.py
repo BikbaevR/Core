@@ -1,24 +1,25 @@
+import traceback
+
 from core.core import Core
+import trace
 
-# answer = Core.check_or_create_folder(r'C:\Users\workPc\Desktop\New folder (3)', create_if_not_exist=True)
-#
-# print(answer.get_status())
-# print(answer.get_error())
-# print(answer.get_messages())
+try:
+    # Core.check_or_create_folder(r'C:\Users\workPc\Desktop\New folder (3)', create_if_not_exist=False)
+    # Core.create_config_file('test', 'test.cfg', {'test': False})
+    # test = Core.get_config_by_name('test')
+    # test.read_config()
+    # print(test.get('test1'))
 
-answer = Core.create_config_file('test', 'test.conf', {'test': False})
-# print(answer.get_status())
-# print(answer.get_error())
-# print(answer.get_messages())
 
-answer, config = Core.get_config_by_name('test')
-# print(answer.get_status())
-# print(answer.get_error())
-# print(answer.get_messages())
+    Core.create_logger('test', 'test_logger', 'test')
+    logger = Core.get_logger_by_name('test')
+    logger.info(f'Sadasdasd')
 
-conf = config.read_config()
-print(conf.get('test'))
+    Core.create_logger('test1', 'test_logger1', 'test')
+    logger1 = Core.get_logger_by_name('test1')
+    logger1.info(f'Sd')
 
-# print(type(conf))
-# print(conf.get('test'))
+except Exception as e:
+    print(e)
+
 

@@ -66,4 +66,7 @@ class Config:
             print(f"Ошибка при чтении файла: {e}")
 
     def get(self, key):
-        return self.config.get(key)
+        try:
+            return self.config[key]
+        except:
+            raise Exception(f'В конфигурационном файле [{self.config_file}] нет параметра [{key}]')
